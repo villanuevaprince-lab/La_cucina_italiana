@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cucina Italiana Verifica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header con login/logout -->
+    <header>
+        <div class="container">
+            <h1>🍝 Cucina Italiana Verifica</h1>
+            
+            <!-- Sezione login (visibile se NON loggato) -->
+            <div id="login-section" class="auth-section">
+                <form id="login-form">
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <div id="login-error" class="error-message"></div>
+            </div>
+            
+            <!-- Sezione utente loggato (visibile se loggato) -->
+            <div id="user-section" class="auth-section" style="display: none;">
+                <span>Benvenuto, <strong id="user-email"></strong></span>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Filtri ricette -->
+        <section id="filters-section">
+            <h2>Esplora Ricette</h2>
+            <div class="filters">
+                <label for="genere-filter">Filtra per genere:</label>
+                <select id="genere-filter">
+                    <option value="">Tutti i generi</option>
+                    <!-- Popolato dinamicamente -->
+                </select>
+            </div>
+        </section>
+
+        <!-- Lista ricette -->
+        <section id="ricette-section">
+            <div id="ricette-list" class="ricette-grid">
+                <!-- Popolato dinamicamente -->
+                <p>Caricamento ricette...</p>
+            </div>
+        </section>
+
+        <!-- Sezione carrello -->
+        <section id="carrello-section">
+            <h2>🛒 Carrello</h2>
+            <div id="carrello-items">
+                <p class="empty-cart">Il carrello è vuoto</p>
+            </div>
+            <div id="carrello-totale" style="display: none;">
+                <h3>Totale: €<span id="totale-amount">0.00</span></h3>
+                <button id="checkout-btn" class="btn-primary">Procedi al Checkout</button>
+                <button id="svuota-carrello-btn" class="btn-secondary">Svuota Carrello</button>
+            </div>
+            <div id="carrello-guest-warning" class="warning-message" style="display: none;">
+                ⚠️ Effettua il login per completare l'ordine
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal dettaglio ricetta -->
+    <div id="ricetta-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="ricetta-dettaglio">
+                <!-- Popolato dinamicamente -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Cucina Italiana Verifica - Progetto Didattico</p>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
